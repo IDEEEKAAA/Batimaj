@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+
+    <title>Politique de confidentialité — BATIMAJ</title>
+
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* =========================
+           PAGE CONFIDENTIALITÉ
+        ========================= */
+
+        .privacy-page {
+            background: #f7f7f7;
+            min-height: 100vh;
+        }
+
+        .privacy-hero {
+            padding: 150px 0 80px;
+            background: #fff;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .privacy-hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .privacy-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: #F3A904;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .privacy-label::before {
+            content: "";
+            width: 28px;
+            height: 2px;
+            background: #F3A904;
+        }
+
+        .privacy-hero h1 {
+            margin: 0 0 20px;
+            color: #171717;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            line-height: 1;
+            letter-spacing: -0.04em;
+        }
+
+        .privacy-hero p {
+            max-width: 700px;
+            margin: 0;
+            color: #666;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .privacy-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 30px 100px;
+        }
+
+        .privacy-intro {
+            margin-bottom: 35px;
+            padding: 28px 32px;
+            background: #FFF3D0;
+            border-left: 4px solid #F3A904;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .privacy-intro strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #171717;
+            font-size: 1rem;
+        }
+
+        .privacy-intro p {
+            margin: 0;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .privacy-section {
+            margin-bottom: 25px;
+            padding: 35px;
+            background: #fff;
+            border: 1px solid #e9e9e9;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .privacy-section-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 22px;
+        }
+
+        .privacy-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #F3A904;
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 800;
+        }
+
+        .privacy-section h2 {
+            margin: 0;
+            color: #171717;
+            font-size: 1.35rem;
+        }
+
+        .privacy-section p {
+            margin: 0 0 15px;
+            color: #555;
+            font-size: 0.98rem;
+            line-height: 1.8;
+        }
+
+        .privacy-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .privacy-section ul {
+            margin: 15px 0 0;
+            padding-left: 22px;
+            color: #555;
+            line-height: 1.9;
+        }
+
+        .privacy-section li::marker {
+            color: #F3A904;
+        }
+
+        .privacy-highlight {
+            margin-top: 22px;
+            padding: 20px 22px;
+            background: #fafafa;
+            border: 1px solid #eeeeee;
+            border-radius: 10px;
+        }
+
+        .privacy-highlight strong {
+            color: #171717;
+        }
+
+        .privacy-placeholder {
+            color: #999;
+            font-style: italic;
+        }
+
+        .privacy-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 25px;
+            color: #171717;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .privacy-back:hover {
+            color: #F3A904;
+        }
+
+        @media (max-width: 700px) {
+            .privacy-hero {
+                padding: 125px 0 60px;
+            }
+
+            .privacy-hero-inner,
+            .privacy-content {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .privacy-section {
+                padding: 25px 22px;
+            }
+
+            .privacy-section-header {
+                align-items: flex-start;
+            }
+
+            .privacy-intro {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <header class="header">
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="BATIMAJ">
+            </a>
+
+            <nav class="nav">
+                <a href="index.html#accueil">Accueil</a>
+                <a href="index.html#a-propos">À propos</a>
+                <a href="index.html#metiers">Nos métiers</a>
+                <a href="index.html#realisations">Réalisations</a>
+                <a href="index.html#devis">Devis</a>
+            </nav>
+
+            <a href="index.html#devis" class="nav-devis">
+                Demander un devis
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         CONTENU
+    ========================== -->
+    <main class="privacy-page">
+
+        <section class="privacy-hero">
+            <div class="privacy-hero-inner">
+
+                <div class="privacy-label">
+                    Protection des données
+                </div>
+
+                <h1>Politique de confidentialité</h1>
+
+                <p>
+                    BATIMAJ accorde une attention particulière à la protection
+                    de vos données personnelles et à la confidentialité des
+                    informations que vous nous transmettez.
+                </p>
+
+            </div>
+        </section>
+
+
+        <section class="privacy-content">
+
+            <div class="privacy-intro">
+                <strong>Une collecte limitée au nécessaire</strong>
+
+                <p>
+                    Le site BATIMAJ ne demande pas la création de compte et
+                    n'a pas vocation à collecter des données personnelles
+                    lors de sa simple consultation. Les données personnelles
+                    sont principalement collectées lorsque vous utilisez
+                    le formulaire de demande de devis.
+                </p>
+            </div>
+
+
+            <!-- 01 -->
+            <article class="privacy-section">
+
+                <div class="privacy-section-header">
+                    <span class="privacy-number">01</span>
+                    <h2>Responsable du traitement</h2>
+                </div>
+
+                <p>
+                    Le responsable du traitement des données personnelles
+                    collectées via le site est :
+                </p>
+
+                <p class="privacy-placeholder">
+                    BATIMAJ — [Adresse du siège social]
+                </p>
+
+                <p class="privacy-placeholder">
+                    Email : [adresse e-mail de contact]
+                </p>
+
+            </article>
+
+
+            <!-- 02 -->
+            <article class="privacy-section">
+
+                <div class="privacy-section-header">
+                    <span class="privacy-number">02</span>
+                    <h2>Données collectées</h2>
+                </div>
+
+                <p>
+                    Lorsque vous utilisez le formulaire de demande de devis,
+                    BATIMAJ peut être amenée à collecter les informations
+                    que vous renseignez directement dans le formulaire.
+                </p>
+
+                <p>
+                    Ces informations peuvent notamment comprendre :
+                </p>
+
+                <ul>
+                    <li>Nom et prénom</li>
+                    <li>Adresse e-mail</li>
+                    <li>Numéro de téléphone</li>
+                    <li>Informations relatives à votre projet</li>
+                    <li>Toute information que vous choisissez de communiquer dans votre message</li>
+                </ul>
+
+                <div class="privacy-highlight">
+                    <strong>Principe de minimisation</strong>
+                    <p>
+                        BATIMAJ ne demande que les informations nécessaires
+                        au traitement de votre demande et à la prise de
+                        contact concernant votre projet.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 03 -->
+            <article class="privacy-section">
+
+                <div class="privacy-section-header">
+                    <span class="privacy-number">03</span>
+                    <h2>Finalité de la collecte</h2>
+                </div>
+
+                <p>
+                    Les données transmises via le formulaire de contact sont
+                    utilisées uniquement afin de :
+                </p>
+
+                <ul>
+                    <li>prendre connaissance de votre demande ;</li>
+                    <li>vous recontacter concernant votre projet ;</li>
+                    <li>étudier votre demande de devis ;</li>
+                    <li>préparer les échanges nécessaires à votre projet.</li>
+                </ul>
+
+                <p>
+                    Les informations communiquées ne sont pas utilisées à
+                    d'autres fins incompatibles avec la demande initiale.
+                </p>
+
+            </article>
+
+
+            <!-- 04 -->
+            <article class="privacy-section">
+
+                <div class="privacy-section-header">
+                    <span class="privacy-number">04</span>
+                    <h2>Base légale du traitement</h2>
+                </div>
+
+                <p>
+                    Le traitement des données transmises dans le cadre d'une
+                    demande de devis repose, lorsque cela est applicable,
+                    sur la nécessité de prendre des mesures à la demande
+                    de la personne concernée avant la conclusion éventuelle
+                    d'un contrat.
+                </p>
+
+                <p>
+                    Cette base correspond notamment aux demandes effectuées
+                    dans le but d'obtenir des informations, d'étudier un
+                    projet ou de préparer une éventuelle prestation.
+                </p>
+
+            </article>
+
+
+            <!-- 05 -->
+            <article class="privacy-section">
+
+                <div class="privacy-section-header">
+                    <span class="privacy-number">05</span>
+                    <h2>Destinataires des données</h2>
+                </div>
+
+                <p>
+                    Les informations transmises via le formulaire sont
+                    destinées aux personnes habilitées au sein de BATIMAJ
+                    à traiter les demandes de devis et à assurer le suivi
+                    des projets.
+                </p>
+
+                <p>
+                    Les données ne sont pas destinées à être vendues ou
+                    communiquées à des tiers à des fins commerciales.
+                </p>
+
+                <p class="privacy-placeholder">
+                    [À COMPLÉTER si des prestataires ou sous-traitants
+                    accèdent aux données, notamment pour l'hébergement
+                    ou l'envoi des e-mails.]
+                </p>
+
+            </article>
+
+
+            <!-- 06 -->
+            <article class="privacy-section">
+
+                <div class="privacy-section-header">
+                    <span class="privacy-number">06</span>
+                    <h2>Durée de conservation</h2>
+                </div>
+
+                <p>
+                    Les données personnelles sont conservées pendant une
+                    durée limitée, déterminée en fonction de la finalité
+                    pour laquelle elles ont été collectées.
+                </p>
+
+                <p class="privacy-placeholder">
+                    [À COMPLÉTER PAR BATIMAJ : indiquer la durée de
+                    conservation retenue pour les demandes de devis.]
+                </p>
+
+                <p>
+                    À l'issue de cette durée, les données sont supprimées
+                    ou, lorsque cela est nécessaire et légalement justifié,
+                    archivées selon les règles applicables.
+                </p>
+
+            </article>
+
+
+            <!-- 07 -->
+            <article class="privacy-section">
+
+                <div class="privacy-section-header">
+                    <span class="privacy-number">07</span>
+                    <h2>Sécurité des données</h2>
+                </div>
+
+                <p>
+                    BATIMAJ met en œuvre des mesures techniques et
+                    organisationnelles appropriées afin de protéger les
+                    données personnelles contre la perte, l'utilisation
+                    abusive, l'accès non autorisé, la divulgation ou
+                    l'altération.
+                </p>
+
+                <p>
+                    Les données sont accessibles uniquement aux personnes
+                    qui en ont besoin dans le cadre du traitement de votre
+                    demande.
+                </p>
+
+            </article>
+
+
+            <!-- 08 -->
+            <article class="privacy-section">
+
+                <div class="privacy-section-header">
+                    <span class="privacy-number">08</span>
+                    <h2>Vos droits</h2>
+                </div>
+
+                <p>
+                    Conformément à la réglementation applicable en matière
+                    de protection des données personnelles, vous disposez
+                    notamment de droits concernant vos données.
+                </p>
+
+                <ul>
+                    <li>un droit d'accès à vos données ;</li>
+                    <li>un droit de rectification des données inexactes ;</li>
+                    <li>un droit à l'effacement de vos données, dans les conditions prévues par la réglementation ;</li>
+                    <li>un droit à la limitation du traitement dans certaines situations ;</li>
+                    <li>un droit d'opposition lorsque les conditions légales sont réunies.</li>
+                </ul>
+
+                <p>
+                    Pour exercer vos droits, vous pouvez contacter BATIMAJ
+                    à l'adresse suivante :
+                </p>
+
+                <p class="privacy-placeholder">
+                    [Adresse e-mail destinée aux demandes relatives aux données personnelles]
+                </p>
+
+                <p>
+                    Vous pouvez également adresser une réclamation à la
+                    Commission Nationale de l'Informatique et des Libertés
+                    (CNIL) si vous estimez que vos droits ne sont pas
+                    respectés.
+                </p>
+
+            </article>
+
+
+            <!-- 09 -->
+            <article class="privacy-section">
+
+                <div class="privacy-section-header">
+                    <span class="privacy-number">09</span>
+                    <h2>Cookies et données de navigation</h2>
+                </div>
+
+                <p>
+                    Le site BATIMAJ est conçu pour fonctionner sans demander
+                    la création d'un compte et sans mettre en place de
+                    dispositif de suivi publicitaire.
+                </p>
+
+                <p>
+                    À la date de mise à jour de cette politique, le site
+                    n'utilise pas de cookies destinés à établir un profil
+                    publicitaire ou à suivre votre navigation à des fins
+                    commerciales.
+                </p>
+
+                <p class="privacy-placeholder">
+                    [À VÉRIFIER AVANT PUBLICATION : confirmer l'absence
+                    de Google Analytics, Meta Pixel, Google Maps,
+                    vidéos intégrées, outils statistiques ou autres
+                    services déposant des cookies ou traceurs.]
+                </p>
+
+            </article>
+
+
+            <!-- 10 -->
+            <article class="privacy-section">
+
+                <div class="privacy-section-header">
+                    <span class="privacy-number">10</span>
+                    <h2>Transfert de données</h2>
+                </div>
+
+                <p>
+                    BATIMAJ ne prévoit pas de transfert de données
+                    personnelles vers des pays situés en dehors de
+                    l'Union européenne dans le cadre du traitement
+                    décrit dans la présente politique.
+                </p>
+
+                <p class="privacy-placeholder">
+                    [À VÉRIFIER avec l'hébergeur et le prestataire
+                    d'envoi des e-mails avant publication.]
+                </p>
+
+            </article>
+
+
+            <!-- 11 -->
+            <article class="privacy-section">
+
+                <div class="privacy-section-header">
+                    <span class="privacy-number">11</span>
+                    <h2>Modification de la politique</h2>
+                </div>
+
+                <p>
+                    BATIMAJ peut être amenée à modifier la présente
+                    politique de confidentialité afin de tenir compte
+                    de l'évolution du site, de ses services ou de la
+                    réglementation applicable.
+                </p>
+
+                <p>
+                    La version publiée sur cette page est la version
+                    applicable au moment de votre consultation du site.
+                </p>
+
+                <p class="privacy-placeholder">
+                    Dernière mise à jour : [DATE]
+                </p>
+
+            </article>
+
+
+            <a href="index.html" class="privacy-back">
+                ← Retour au site
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo.png" alt="BATIMAJ">
+                    </a>
+
+                    <p>
+                        Votre partenaire pour vos projets de rénovation
+                        et d'aménagement.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Navigation</h3>
+
+                    <a href="index.html#accueil">Accueil</a>
+                    <a href="index.html#a-propos">À propos</a>
+                    <a href="index.html#metiers">Nos métiers</a>
+                    <a href="index.html#realisations">Réalisations</a>
+                    <a href="index.html#devis">Devis</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Informations</h3>
+
+                    <a href="mentions-legales.html">
+                        Mentions légales
+                    </a>
+
+                    <a href="politique-confidentialite.html">
+                        Politique de confidentialité
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    © 2026 BATIMAJ — Tous droits réservés.
+                </p>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

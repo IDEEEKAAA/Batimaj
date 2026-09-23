@@ -50,86 +50,6 @@
 
 </head>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-    const mainImage = document.getElementById("about-carousel-main");
-    const mainTitle = document.getElementById("about-carousel-title");
-
-    const items = document.querySelectorAll(".about-carousel-item");
-
-    if (!mainImage || !mainTitle || !items.length) {
-        return;
-    }
-
-
-    function changeMainImage(item) {
-
-        const newImage = item.dataset.image;
-        const newTitle = item.dataset.title;
-
-        if (!newImage) {
-            return;
-        }
-
-
-        /*
-         * Petite transition de sortie
-         */
-
-        mainImage.style.opacity = "0";
-
-
-        setTimeout(() => {
-
-            mainImage.src = newImage;
-            mainImage.alt = "Réalisation BATIMAJ - " + newTitle;
-
-            mainTitle.textContent = newTitle;
-
-            mainImage.style.opacity = "1";
-
-        }, 180);
-
-
-        /*
-         * Photo active
-         */
-
-        items.forEach(element => {
-            element.classList.remove("active");
-        });
-
-        item.classList.add("active");
-    }
-
-
-    /*
-     * PC :
-     * changement au survol
-     */
-
-    items.forEach(item => {
-
-        item.addEventListener("mouseenter", () => {
-            changeMainImage(item);
-        });
-
-
-        /*
-         * Mobile :
-         * changement au toucher / clic
-         */
-
-        item.addEventListener("click", () => {
-            changeMainImage(item);
-        });
-
-    });
-
-});
-</script>
-
 <body>
 
     <!-- =====================================================
@@ -1045,6 +965,85 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
     </footer>
 
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const mainImage = document.getElementById("about-carousel-main");
+    const mainTitle = document.getElementById("about-carousel-title");
+
+    const items = document.querySelectorAll(".about-carousel-item");
+
+    if (!mainImage || !mainTitle || !items.length) {
+        return;
+    }
+
+
+    function changeMainImage(item) {
+
+        const newImage = item.dataset.image;
+        const newTitle = item.dataset.title;
+
+        if (!newImage) {
+            return;
+        }
+
+
+        /*
+         * Petite transition de sortie
+         */
+
+        mainImage.style.opacity = "0";
+
+
+        setTimeout(() => {
+
+            mainImage.src = newImage;
+            mainImage.alt = "Réalisation BATIMAJ - " + newTitle;
+
+            mainTitle.textContent = newTitle;
+
+            mainImage.style.opacity = "1";
+
+        }, 180);
+
+
+        /*
+         * Photo active
+         */
+
+        items.forEach(element => {
+            element.classList.remove("active");
+        });
+
+        item.classList.add("active");
+    }
+
+
+    /*
+     * PC :
+     * changement au survol
+     */
+
+    items.forEach(item => {
+
+        item.addEventListener("mouseenter", () => {
+            changeMainImage(item);
+        });
+
+
+        /*
+         * Mobile :
+         * changement au toucher / clic
+         */
+
+        item.addEventListener("click", () => {
+            changeMainImage(item);
+        });
+
+    });
+
+});
+</script>
 
 </body>
 

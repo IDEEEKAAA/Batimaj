@@ -50,6 +50,85 @@
 
 </head>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const mainImage = document.getElementById("about-carousel-main");
+    const mainTitle = document.getElementById("about-carousel-title");
+
+    const items = document.querySelectorAll(".about-carousel-item");
+
+    if (!mainImage || !mainTitle || !items.length) {
+        return;
+    }
+
+
+    function changeMainImage(item) {
+
+        const newImage = item.dataset.image;
+        const newTitle = item.dataset.title;
+
+        if (!newImage) {
+            return;
+        }
+
+
+        /*
+         * Petite transition de sortie
+         */
+
+        mainImage.style.opacity = "0";
+
+
+        setTimeout(() => {
+
+            mainImage.src = newImage;
+            mainImage.alt = "Réalisation BATIMAJ - " + newTitle;
+
+            mainTitle.textContent = newTitle;
+
+            mainImage.style.opacity = "1";
+
+        }, 180);
+
+
+        /*
+         * Photo active
+         */
+
+        items.forEach(element => {
+            element.classList.remove("active");
+        });
+
+        item.classList.add("active");
+    }
+
+
+    /*
+     * PC :
+     * changement au survol
+     */
+
+    items.forEach(item => {
+
+        item.addEventListener("mouseenter", () => {
+            changeMainImage(item);
+        });
+
+
+        /*
+         * Mobile :
+         * changement au toucher / clic
+         */
+
+        item.addEventListener("click", () => {
+            changeMainImage(item);
+        });
+
+    });
+
+});
+</script>
 
 <body>
 
@@ -273,17 +352,116 @@
                     </div>
 
                     <div class="about-visual">
-                        <div class="about-visual-backdrop" aria-hidden="true"></div>
+                         <div class="about-carousel" aria-label="Quelques réalisations BATIMAJ">
 
-                        <div class="about-image">
-                            <img
-                                src="images/about.jpg"
-                                alt="Rénovation intérieure réalisée par BATIMAJ"
-                                loading="lazy"
-                            >
-                        </div>
+        <!-- Cercle central -->
+        <div class="about-carousel-center">
 
-                        <div class="about-orange-shape" aria-hidden="true"></div>
+            <img
+                id="about-carousel-main"
+                src="images/about.jpg"
+                alt="Rénovation intérieure réalisée par BATIMAJ"
+            >
+
+            <div class="about-carousel-caption">
+                <span id="about-carousel-title">
+                    Nos réalisations
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- Photo 1 -->
+        <button
+            class="about-carousel-item item-1"
+            type="button"
+            data-image="images/metier-electricite.jpg"
+            data-title="Électricité"
+            aria-label="Voir nos réalisations en électricité"
+        >
+            <img
+                src="images/metier-electricite.jpg"
+                alt="Réalisation électrique BATIMAJ"
+            >
+        </button>
+
+
+        <!-- Photo 2 -->
+        <button
+            class="about-carousel-item item-2"
+            type="button"
+            data-image="images/metier-platrerie.jpg"
+            data-title="Plâtrerie"
+            aria-label="Voir nos réalisations en plâtrerie"
+        >
+            <img
+                src="images/metier-platrerie.jpg"
+                alt="Réalisation de plâtrerie BATIMAJ"
+            >
+        </button>
+
+
+        <!-- Photo 3 -->
+        <button
+            class="about-carousel-item item-3"
+            type="button"
+            data-image="images/metier-peinture.jpg"
+            data-title="Peinture"
+            aria-label="Voir nos réalisations en peinture"
+        >
+            <img
+                src="images/metier-peinture.jpg"
+                alt="Réalisation de peinture BATIMAJ"
+            >
+        </button>
+
+
+        <!-- Photo 4 -->
+        <button
+            class="about-carousel-item item-4"
+            type="button"
+            data-image="images/metier-menuiseries.jpg"
+            data-title="Menuiseries"
+            aria-label="Voir nos réalisations en menuiseries"
+        >
+            <img
+                src="images/metier-menuiseries.jpg"
+                alt="Réalisation de menuiseries BATIMAJ"
+            >
+        </button>
+
+
+        <!-- Photo 5 -->
+        <button
+            class="about-carousel-item item-5"
+            type="button"
+            data-image="images/metier-plomberie.jpg"
+            data-title="Plomberie"
+            aria-label="Voir nos réalisations en plomberie"
+        >
+            <img
+                src="images/metier-plomberie.jpg"
+                alt="Réalisation de plomberie BATIMAJ"
+            >
+        </button>
+
+
+        <!-- Photo 6 -->
+        <button
+            class="about-carousel-item item-6"
+            type="button"
+            data-image="images/metier-carrelage.jpg"
+            data-title="Carrelage"
+            aria-label="Voir nos réalisations en carrelage"
+        >
+            <img
+                src="images/metier-carrelage.jpg"
+                alt="Réalisation de carrelage BATIMAJ"
+            >
+        </button>
+
+    </div>
                     </div>
 
                 </div>

@@ -1632,107 +1632,41 @@ h6,
 }
 
 /* =========================================================
-   CARROUSEL CIRCULAIRE - SECTION À PROPOS
+   CARROUSEL ORBITAL - SECTION À PROPOS
    ========================================================= */
 
 .about-visual {
     position: relative;
     min-height: 600px;
+
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 
-/* Zone générale du carrousel */
+/* ---------------------------------------------------------
+   ORBITE
+   --------------------------------------------------------- */
 
 .about-carousel {
+    --orbit-radius: 225px;
+    --orbit-speed: 30s;
+
     position: relative;
+
     width: 570px;
     height: 570px;
+
     max-width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
-/* Cercle central */
-
-.about-carousel-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 290px;
-    height: 290px;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-    overflow: hidden;
-
-    background: #fff;
-
-    border: 8px solid #fff;
-
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.15),
-        0 0 0 1px rgba(243, 169, 4, 0.15);
-
-    z-index: 5;
-}
-
-
-/* Image centrale */
-
-.about-carousel-center img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-
-    transition:
-        opacity 0.25s ease,
-        transform 0.45s ease;
-}
-
-
-/* Petit effet zoom */
-
-.about-carousel-center:hover img {
-    transform: scale(1.04);
-}
-
-
-/* Texte sur la photo centrale */
-
-.about-carousel-caption {
-    position: absolute;
-
-    left: 50%;
-    bottom: 18px;
-
-    transform: translateX(-50%);
-
-    background: rgba(255, 255, 255, 0.95);
-
-    padding: 9px 18px;
-
-    border-radius: 999px;
-
-    white-space: nowrap;
-
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-
-    font-size: 14px;
-    font-weight: 700;
-
-    color: #111;
-
-    z-index: 2;
-}
-
-
-/* Cercle décoratif autour */
+/* Cercle décoratif */
 
 .about-carousel::before {
     content: "";
@@ -1747,7 +1681,7 @@ h6,
 
     transform: translate(-50%, -50%);
 
-    border: 1px solid rgba(243, 169, 4, 0.25);
+    border: 1px solid rgba(243, 169, 4, 0.22);
 
     border-radius: 50%;
 
@@ -1755,10 +1689,101 @@ h6,
 }
 
 
-/* Petites photos */
+/* ---------------------------------------------------------
+   PHOTO CENTRALE
+   --------------------------------------------------------- */
+
+.about-carousel-center {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 290px;
+    height: 290px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background: #fff;
+
+    border: 8px solid #fff;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(243, 169, 4, 0.15);
+
+    z-index: 10;
+}
+
+
+/* Image centrale */
+
+.about-carousel-center img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease,
+        opacity 0.3s ease;
+}
+
+
+/* Petit zoom de la centrale */
+
+.about-carousel-center:hover img {
+    transform: scale(1.04);
+}
+
+
+/* ---------------------------------------------------------
+   TEXTE SOUS LA PHOTO CENTRALE
+   --------------------------------------------------------- */
+
+.about-carousel-caption {
+    position: absolute;
+
+    left: 50%;
+    bottom: 18px;
+
+    transform: translateX(-50%);
+
+    padding: 9px 18px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-radius: 999px;
+
+    white-space: nowrap;
+
+    color: #111;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12);
+
+    z-index: 2;
+}
+
+
+/* ---------------------------------------------------------
+   PETITES PHOTOS ORBITALES
+   --------------------------------------------------------- */
 
 .about-carousel-item {
     position: absolute;
+
+    top: 50%;
+    left: 50%;
 
     width: 105px;
     height: 105px;
@@ -1775,13 +1800,23 @@ h6,
 
     cursor: pointer;
 
+    z-index: 15;
+
     box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.14);
 
-    z-index: 6;
+    transform:
+        translate(-50%, -50%)
+        rotate(var(--start-angle))
+        translateY(calc(-1 * var(--orbit-radius)))
+        rotate(calc(-1 * var(--start-angle)));
+
+    animation:
+        about-orbit var(--orbit-speed) linear infinite;
 
     transition:
-        transform 0.35s cubic-bezier(.2,.8,.2,1),
+        width 0.35s ease,
+        height 0.35s ease,
         box-shadow 0.35s ease;
 }
 
@@ -1792,127 +1827,155 @@ h6,
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-
     display: block;
 
-    transition: transform 0.45s ease;
+    object-fit: cover;
+
+    transition:
+        transform 0.4s ease;
 }
 
 
-/* Hover */
-
-.about-carousel-item:hover {
-    box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.20),
-        0 0 0 3px rgba(243, 169, 4, 0.75);
-}
-
-.about-carousel-item:hover img {
-    transform: scale(1.12);
-}
-
-
-/* =========================================================
-   POSITION DES 6 PHOTOS
-   ========================================================= */
-
-
-/* Haut */
+/* ---------------------------------------------------------
+   POSITIONS DE DÉPART
+   --------------------------------------------------------- */
 
 .about-carousel-item.item-1 {
-    top: 0;
-    left: 50%;
-
-    transform: translateX(-50%);
+    --start-angle: 0deg;
 }
-
-
-/* Haut droite */
 
 .about-carousel-item.item-2 {
-    top: 105px;
-    right: 10px;
+    --start-angle: 60deg;
 }
-
-
-/* Bas droite */
 
 .about-carousel-item.item-3 {
-    bottom: 55px;
-    right: 35px;
+    --start-angle: 120deg;
 }
-
-
-/* Bas */
 
 .about-carousel-item.item-4 {
-    bottom: 0;
-    left: 50%;
-
-    transform: translateX(-50%);
+    --start-angle: 180deg;
 }
-
-
-/* Bas gauche */
 
 .about-carousel-item.item-5 {
-    bottom: 55px;
-    left: 35px;
+    --start-angle: 240deg;
 }
-
-
-/* Haut gauche */
 
 .about-carousel-item.item-6 {
-    top: 105px;
-    left: 10px;
+    --start-angle: 300deg;
 }
 
 
-/* =========================================================
-   PETITE ANIMATION QUAND UNE PHOTO EST ACTIVE
-   ========================================================= */
+/* ---------------------------------------------------------
+   ANIMATION ORBITALE
+   --------------------------------------------------------- */
+
+@keyframes about-orbit {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(var(--start-angle))
+            translateY(calc(-1 * var(--orbit-radius)))
+            rotate(calc(-1 * var(--start-angle)));
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(calc(var(--start-angle) + 360deg))
+            translateY(calc(-1 * var(--orbit-radius)))
+            rotate(calc(-1 * (var(--start-angle) + 360deg)));
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   HOVER
+   --------------------------------------------------------- */
+
+/*
+   Dès qu'on passe sur une photo :
+   → toute l'orbite s'arrête
+   → la photo survolée s'agrandit
+*/
+
+.about-carousel:has(.about-carousel-item:hover) .about-carousel-item {
+    animation-play-state: paused;
+}
+
+
+.about-carousel-item:hover {
+    width: 125px;
+    height: 125px;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.22),
+        0 0 0 3px rgba(243, 169, 4, 0.8);
+
+    z-index: 30;
+}
+
+
+.about-carousel-item:hover img {
+    transform: scale(1.08);
+}
+
+
+/* ---------------------------------------------------------
+   PHOTO ACTIVE
+   --------------------------------------------------------- */
 
 .about-carousel-item.active {
     box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.20),
+        0 15px 40px rgba(0, 0, 0, 0.20),
         0 0 0 3px #F3A904;
 }
 
 
-/* =========================================================
+/* ---------------------------------------------------------
    TABLETTE
-   ========================================================= */
+   --------------------------------------------------------- */
 
 @media (max-width: 1100px) {
 
     .about-carousel {
+        --orbit-radius: 195px;
+
         width: 500px;
         height: 500px;
     }
+
+
+    .about-carousel::before {
+        width: 390px;
+        height: 390px;
+    }
+
 
     .about-carousel-center {
         width: 250px;
         height: 250px;
     }
 
-    .about-carousel::before {
-        width: 400px;
-        height: 400px;
-    }
 
     .about-carousel-item {
         width: 90px;
         height: 90px;
     }
 
+
+    .about-carousel-item:hover {
+        width: 108px;
+        height: 108px;
+    }
+
 }
 
 
-/* =========================================================
+/* ---------------------------------------------------------
    MOBILE
-   ========================================================= */
+   --------------------------------------------------------- */
 
 @media (max-width: 768px) {
 
@@ -1920,82 +1983,42 @@ h6,
         min-height: auto;
 
         margin-top: 35px;
-
-        width: 100%;
     }
 
 
     .about-carousel {
-        width: 360px;
-        height: 390px;
+        --orbit-radius: 138px;
 
-        margin: 0 auto;
+        width: 360px;
+        height: 360px;
+    }
+
+
+    .about-carousel::before {
+        width: 285px;
+        height: 285px;
     }
 
 
     .about-carousel-center {
         width: 190px;
         height: 190px;
-    }
 
-
-    .about-carousel::before {
-        width: 300px;
-        height: 300px;
+        border-width: 6px;
     }
 
 
     .about-carousel-item {
-        width: 72px;
-        height: 72px;
+        width: 70px;
+        height: 70px;
 
         border-width: 4px;
     }
 
 
-    /* Haut */
-
-    .about-carousel-item.item-1 {
-        top: 0;
-    }
-
-
-    /* Haut droite */
-
-    .about-carousel-item.item-2 {
-        top: 70px;
-        right: 5px;
-    }
-
-
-    /* Bas droite */
-
-    .about-carousel-item.item-3 {
-        bottom: 55px;
-        right: 15px;
-    }
-
-
-    /* Bas */
-
-    .about-carousel-item.item-4 {
-        bottom: 0;
-    }
-
-
-    /* Bas gauche */
-
-    .about-carousel-item.item-5 {
-        bottom: 55px;
-        left: 15px;
-    }
-
-
-    /* Haut gauche */
-
-    .about-carousel-item.item-6 {
-        top: 70px;
-        left: 5px;
+    .about-carousel-item:hover {
+        width: 82px;
+        height: 82px;
     }
 
 
@@ -2010,15 +2033,23 @@ h6,
 }
 
 
-/* =========================================================
+/* ---------------------------------------------------------
    PETITS TÉLÉPHONES
-   ========================================================= */
+   --------------------------------------------------------- */
 
 @media (max-width: 400px) {
 
     .about-carousel {
+        --orbit-radius: 120px;
+
         width: 320px;
-        height: 350px;
+        height: 320px;
+    }
+
+
+    .about-carousel::before {
+        width: 250px;
+        height: 250px;
     }
 
 
@@ -2028,25 +2059,15 @@ h6,
     }
 
 
-    .about-carousel::before {
-        width: 270px;
-        height: 270px;
-    }
-
-
     .about-carousel-item {
-        width: 64px;
-        height: 64px;
+        width: 62px;
+        height: 62px;
     }
 
 
-    .about-carousel-item.item-2 {
-        top: 65px;
-    }
-
-
-    .about-carousel-item.item-6 {
-        top: 65px;
+    .about-carousel-item:hover {
+        width: 72px;
+        height: 72px;
     }
 
 }

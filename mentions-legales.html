@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+
+    <title>Mentions légales — BATIMAJ</title>
+
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* =========================
+           PAGE JURIDIQUE
+        ========================= */
+
+        .legal-page {
+            background: #f7f7f7;
+            min-height: 100vh;
+        }
+
+        .legal-hero {
+            padding: 150px 0 80px;
+            background: #fff;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .legal-hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .legal-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: #F3A904;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .legal-label::before {
+            content: "";
+            width: 28px;
+            height: 2px;
+            background: #F3A904;
+        }
+
+        .legal-hero h1 {
+            margin: 0 0 20px;
+            color: #171717;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            line-height: 1;
+            letter-spacing: -0.04em;
+        }
+
+        .legal-hero p {
+            max-width: 650px;
+            margin: 0;
+            color: #666;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .legal-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 30px 100px;
+        }
+
+        .legal-intro {
+            margin-bottom: 35px;
+            padding: 28px 32px;
+            background: #FFF3D0;
+            border-left: 4px solid #F3A904;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .legal-intro strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #171717;
+            font-size: 1rem;
+        }
+
+        .legal-intro p {
+            margin: 0;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .legal-section {
+            margin-bottom: 25px;
+            padding: 35px;
+            background: #fff;
+            border: 1px solid #e9e9e9;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .legal-section-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 22px;
+        }
+
+        .legal-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #F3A904;
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 800;
+        }
+
+        .legal-section h2 {
+            margin: 0;
+            color: #171717;
+            font-size: 1.35rem;
+        }
+
+        .legal-section p {
+            margin: 0 0 15px;
+            color: #555;
+            font-size: 0.98rem;
+            line-height: 1.8;
+        }
+
+        .legal-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .legal-section ul {
+            margin: 15px 0 0;
+            padding-left: 22px;
+            color: #555;
+            line-height: 1.9;
+        }
+
+        .legal-section li::marker {
+            color: #F3A904;
+        }
+
+        .legal-placeholder {
+            color: #999;
+            font-style: italic;
+        }
+
+        .legal-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 25px;
+            color: #171717;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .legal-back:hover {
+            color: #F3A904;
+        }
+
+        @media (max-width: 700px) {
+            .legal-hero {
+                padding: 125px 0 60px;
+            }
+
+            .legal-hero-inner,
+            .legal-content {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .legal-section {
+                padding: 25px 22px;
+            }
+
+            .legal-section-header {
+                align-items: flex-start;
+            }
+
+            .legal-intro {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <header class="header">
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="BATIMAJ">
+            </a>
+
+            <nav class="nav">
+                <a href="index.html#accueil">Accueil</a>
+                <a href="index.html#a-propos">À propos</a>
+                <a href="index.html#metiers">Nos métiers</a>
+                <a href="index.html#realisations">Réalisations</a>
+                <a href="index.html#devis">Devis</a>
+            </nav>
+
+            <a href="index.html#devis" class="nav-devis">
+                Demander un devis
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         CONTENU
+    ========================== -->
+    <main class="legal-page">
+
+        <section class="legal-hero">
+            <div class="legal-hero-inner">
+
+                <div class="legal-label">
+                    Informations légales
+                </div>
+
+                <h1>Mentions légales</h1>
+
+                <p>
+                    Retrouvez ici les informations relatives à l'éditeur,
+                    à l'hébergement et à l'utilisation du site internet BATIMAJ.
+                </p>
+
+            </div>
+        </section>
+
+
+        <section class="legal-content">
+
+            <div class="legal-intro">
+                <strong>Informations importantes</strong>
+
+                <p>
+                    Cette page contient actuellement du contenu temporaire.
+                    Les informations définitives seront ajoutées prochainement.
+                </p>
+            </div>
+
+
+            <!-- 01 -->
+            <article class="legal-section">
+
+                <div class="legal-section-header">
+                    <span class="legal-number">01</span>
+                    <h2>Éditeur du site</h2>
+                </div>
+
+                <p class="legal-placeholder">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Praesent euismod, erat vitae tincidunt posuere, justo
+                    sapien malesuada neque, vitae tincidunt lorem massa sed
+                    justo.
+                </p>
+
+                <p class="legal-placeholder">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Integer vitae justo nec neque consequat malesuada.
+                </p>
+
+            </article>
+
+
+            <!-- 02 -->
+            <article class="legal-section">
+
+                <div class="legal-section-header">
+                    <span class="legal-number">02</span>
+                    <h2>Informations sur l'entreprise</h2>
+                </div>
+
+                <p class="legal-placeholder">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed ut perspiciatis unde omnis iste natus error sit
+                    voluptatem accusantium doloremque laudantium.
+                </p>
+
+                <ul>
+                    <li class="legal-placeholder">Dénomination sociale</li>
+                    <li class="legal-placeholder">Adresse du siège social</li>
+                    <li class="legal-placeholder">Numéro SIRET</li>
+                    <li class="legal-placeholder">Numéro de TVA intracommunautaire</li>
+                    <li class="legal-placeholder">Responsable de publication</li>
+                </ul>
+
+            </article>
+
+
+            <!-- 03 -->
+            <article class="legal-section">
+
+                <div class="legal-section-header">
+                    <span class="legal-number">03</span>
+                    <h2>Hébergement du site</h2>
+                </div>
+
+                <p class="legal-placeholder">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+
+                <p class="legal-placeholder">
+                    Informations relatives à l'hébergeur du site,
+                    son adresse et ses coordonnées.
+                </p>
+
+            </article>
+
+
+            <!-- 04 -->
+            <article class="legal-section">
+
+                <div class="legal-section-header">
+                    <span class="legal-number">04</span>
+                    <h2>Propriété intellectuelle</h2>
+                </div>
+
+                <p class="legal-placeholder">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur.
+                </p>
+
+                <p class="legal-placeholder">
+                    L'ensemble des éléments présents sur ce site,
+                    notamment les textes, images, photographies, graphismes
+                    et logos, sont susceptibles d'être protégés par les
+                    dispositions relatives à la propriété intellectuelle.
+                </p>
+
+            </article>
+
+
+            <!-- 05 -->
+            <article class="legal-section">
+
+                <div class="legal-section-header">
+                    <span class="legal-number">05</span>
+                    <h2>Responsabilité</h2>
+                </div>
+
+                <p class="legal-placeholder">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur
+                    aut odit aut fugit.
+                </p>
+
+            </article>
+
+
+            <!-- 06 -->
+            <article class="legal-section">
+
+                <div class="legal-section-header">
+                    <span class="legal-number">06</span>
+                    <h2>Contact</h2>
+                </div>
+
+                <p class="legal-placeholder">
+                    Pour toute question concernant le site ou les présentes
+                    mentions légales, vous pouvez contacter BATIMAJ à
+                    l'adresse indiquée ci-dessous.
+                </p>
+
+                <p class="legal-placeholder">
+                    Email : adresse-email@exemple.fr
+                </p>
+
+            </article>
+
+
+            <a href="index.html" class="legal-back">
+                ← Retour au site
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo.png" alt="BATIMAJ">
+                    </a>
+
+                    <p>
+                        Votre partenaire pour vos projets de rénovation
+                        et d'aménagement.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Navigation</h3>
+
+                    <a href="index.html#accueil">Accueil</a>
+                    <a href="index.html#a-propos">À propos</a>
+                    <a href="index.html#metiers">Nos métiers</a>
+                    <a href="index.html#realisations">Réalisations</a>
+                    <a href="index.html#devis">Devis</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Informations</h3>
+
+                    <a href="mentions-legales.html">
+                        Mentions légales
+                    </a>
+
+                    <a href="politique-confidentialite.html">
+                        Politique de confidentialité
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    © 2026 BATIMAJ — Tous droits réservés.
+                </p>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

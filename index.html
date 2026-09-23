@@ -965,82 +965,395 @@
         </div>
     </footer>
 
-    <script>
+        <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-    const mainImage = document.getElementById("about-carousel-main");
-    const mainTitle = document.getElementById("about-carousel-title");
+    const carousel = document.querySelector(".about-carousel");
+    const center = document.querySelector(".about-carousel-center");
+    const centerImage = document.getElementById("about-carousel-main");
+    const centerTitle = document.getElementById("about-carousel-title");
+    const items = [...document.querySelectorAll(".about-carousel-item")];
 
-    const items = document.querySelectorAll(".about-carousel-item");
-
-    if (!mainImage || !mainTitle || !items.length) {
+    if (!carousel || !center || !centerImage || !items.length) {
         return;
     }
 
+    let activeItem = null;
+    let activeClone = null;
+    let returnTimer = null;
+    let animationToken = 0;
 
-    function changeMainImage(item) {
+    const isTouchDevice =
+        window.matchMedia("(hover: none)").matches ||
+        "ontouchstart" in window;
 
-        const newImage = item.dataset.image;
-        const newTitle = item.dataset.title;
 
-        if (!newImage) {
+    /* =====================================================
+       CRÉER LA PHOTO QUI SE DÉPLACE
+       ===================================================== */
+
+    function createMovingImage(sourceImage, rect) {
+
+        const clone = sourceImage.cloneNode(true);
+
+        clone.className = "about-carousel-moving-image";
+
+        clone.style.position = "fixed";
+        clone.style.left = rect.left + "px";
+        clone.style.top = rect.top + "px";
+
+        clone.style.width = rect.width + "px";
+        clone.style.height = rect.height + "px";
+
+        clone.style.margin = "0";
+        clone.style.zIndex = "9999";
+        clone.style.pointerEvents = "none";
+        clone.style.objectFit = "cover";
+        clone.style.borderRadius = "50%";
+
+        document.body.appendChild(clone);
+
+        return clone;
+    }
+
+
+    /* =====================================================
+       ORBITE
+       ===================================================== */
+
+    function pauseOrbit() {
+
+        items.forEach(item => {
+            item.style.animationPlayState = "paused";
+        });
+
+    }
+
+
+    function resumeOrbit() {
+
+        items.forEach(item => {
+            item.style.animationPlayState = "";
+        });
+
+    }
+
+
+    /* =====================================================
+       NETTOYAGE
+       ===================================================== */
+
+    function cleanupClone() {
+
+        if (activeClone) {
+            activeClone.remove();
+            activeClone = null;
+        }
+
+    }
+
+
+    /* =====================================================
+       RETOUR SUR L'ORBITE
+       ===================================================== */
+
+    function returnToOrbit(item) {
+
+        if (!item || activeItem !== item) {
+            return;
+        }
+
+        animationToken++;
+
+        clearTimeout(returnTimer);
+
+        cleanupClone();
+
+        item.classList.remove(
+            "orbit-hidden",
+            "orbit-selected"
+        );
+
+        item.style.opacity = "";
+        item.style.visibility = "";
+
+        activeItem = null;
+
+        resumeOrbit();
+
+    }
+
+
+    /* =====================================================
+       PHOTO → CENTRE
+       ===================================================== */
+
+    function moveToCenter(item) {
+
+        if (!item || activeItem === item) {
+            return;
+        }
+
+        clearTimeout(returnTimer);
+
+
+        /* Si une autre photo est déjà au centre */
+
+        if (activeItem) {
+            returnToOrbit(activeItem);
+        }
+
+
+        const image = item.querySelector("img");
+
+        if (!image) {
             return;
         }
 
 
-        /*
-         * Petite transition de sortie
-         */
+        const itemRect = item.getBoundingClientRect();
+        const targetRect = center.getBoundingClientRect();
 
-        mainImage.style.opacity = "0";
+        const newImageSrc = item.dataset.image;
+        const newTitle =
+            item.dataset.title || "Réalisation BATIMAJ";
 
+
+        if (!newImageSrc) {
+            return;
+        }
+
+
+        activeItem = item;
+
+        animationToken++;
+
+        const currentToken = animationToken;
+
+
+        pauseOrbit();
+
+
+        /* Crée une copie temporaire pour l'animation */
+
+        activeClone =
+            createMovingImage(image, itemRect);
+
+
+        /* Cache uniquement la vignette originale */
+
+        item.classList.add("orbit-hidden");
+
+
+        /* Déplacement vers le centre */
+
+        requestAnimationFrame(() => {
+
+            if (
+                !activeClone ||
+                currentToken !== animationToken
+            ) {
+                return;
+            }
+
+            activeClone.style.left =
+                targetRect.left + "px";
+
+            activeClone.style.top =
+                targetRect.top + "px";
+
+            activeClone.style.width =
+                targetRect.width + "px";
+
+            activeClone.style.height =
+                targetRect.height + "px";
+
+        });
+
+
+        /* =================================================
+           FIN DE L'ANIMATION
+           ================================================= */
+
+        const finishMove = () => {
+
+            if (
+                currentToken !== animationToken ||
+                !activeClone
+            ) {
+                return;
+            }
+
+
+            /*
+             * On change UNIQUEMENT l'image centrale.
+             *
+             * Les petites images ne sont jamais modifiées.
+             */
+
+            centerImage.src = newImageSrc;
+
+            centerImage.alt =
+                "Réalisation BATIMAJ - " + newTitle;
+
+
+            if (centerTitle) {
+                centerTitle.textContent = newTitle;
+            }
+
+
+            /*
+             * On remet simplement la vignette
+             * à son état normal.
+             */
+
+            item.classList.remove("orbit-hidden");
+
+            item.classList.add("orbit-selected");
+
+
+            cleanupClone();
+
+            resumeOrbit();
+
+        };
+
+
+        activeClone.addEventListener(
+            "transitionend",
+            finishMove,
+            { once: true }
+        );
+
+
+        /* Sécurité */
 
         setTimeout(() => {
 
-            mainImage.src = newImage;
-            mainImage.alt = "Réalisation BATIMAJ - " + newTitle;
+            if (
+                activeClone &&
+                currentToken === animationToken
+            ) {
+                finishMove();
+            }
 
-            mainTitle.textContent = newTitle;
+        }, 750);
 
-            mainImage.style.opacity = "1";
-
-        }, 180);
-
-
-        /*
-         * Photo active
-         */
-
-        items.forEach(element => {
-            element.classList.remove("active");
-        });
-
-        item.classList.add("active");
     }
 
 
-    /*
-     * PC :
-     * changement au survol
-     */
+    /* =====================================================
+       DESKTOP
+       ===================================================== */
 
-    items.forEach(item => {
+    if (!isTouchDevice) {
 
-        item.addEventListener("mouseenter", () => {
-            changeMainImage(item);
+        /*
+         * Une photo va au centre au survol.
+         */
+
+        items.forEach(item => {
+
+            item.addEventListener(
+                "mouseenter",
+                () => {
+
+                    moveToCenter(item);
+
+                }
+            );
+
         });
 
 
         /*
-         * Mobile :
-         * changement au toucher / clic
+         * PAS DE mouseleave sur les photos.
+         *
+         * Sinon le déplacement vers le centre
+         * provoquerait un retour immédiat.
          */
 
-        item.addEventListener("click", () => {
-            changeMainImage(item);
+
+        /*
+         * Retour à l'état normal uniquement
+         * quand on quitte complètement le carrousel.
+         */
+
+        carousel.addEventListener(
+            "mouseleave",
+            () => {
+
+                clearTimeout(returnTimer);
+
+                returnTimer = setTimeout(() => {
+
+                    if (activeItem) {
+                        returnToOrbit(activeItem);
+                    }
+
+                }, 150);
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       MOBILE / TACTILE
+       ===================================================== */
+
+    if (isTouchDevice) {
+
+        items.forEach(item => {
+
+            item.addEventListener(
+                "click",
+                event => {
+
+                    event.preventDefault();
+
+                    clearTimeout(returnTimer);
+
+
+                    /*
+                     * Si on retape la photo active,
+                     * elle revient sur son orbite.
+                     */
+
+                    if (activeItem === item) {
+
+                        returnToOrbit(item);
+
+                        return;
+                    }
+
+
+                    /*
+                     * Sinon elle va au centre.
+                     */
+
+                    moveToCenter(item);
+
+
+                    /*
+                     * Retour automatique après 3 secondes.
+                     */
+
+                    returnTimer = setTimeout(() => {
+
+                        if (activeItem === item) {
+                            returnToOrbit(item);
+                        }
+
+                    }, 3000);
+
+                }
+            );
+
         });
 
-    });
+    }
 
 });
 </script>

@@ -1894,16 +1894,6 @@ h6,
    HOVER
    --------------------------------------------------------- */
 
-/*
-   Dès qu'on passe sur une photo :
-   → toute l'orbite s'arrête
-   → la photo survolée s'agrandit
-*/
-
-.about-carousel:has(.about-carousel-item:hover) .about-carousel-item {
-    animation-play-state: paused;
-}
-
 
 .about-carousel-item:hover {
     width: 125px;
@@ -2071,3 +2061,130 @@ h6,
     }
 
 }
+
+/* =========================================================
+   INTERACTION TACTILE
+   ========================================================= */
+
+.about-carousel-item.touch-active {
+    width: 82px;
+    height: 82px;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.22),
+        0 0 0 3px #F3A904;
+
+    z-index: 30;
+}
+
+.about-carousel-item.touch-active img {
+    transform: scale(1.08);
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .about-carousel-item.touch-active {
+        width: 82px;
+        height: 82px;
+    }
+
+}
+
+
+/* Petits téléphones */
+
+@media (max-width: 400px) {
+
+    .about-carousel-item.touch-active {
+        width: 72px;
+        height: 72px;
+    }
+
+}
+
+/* =========================================================
+   PHOTO QUI VIENT AU CENTRE
+   ========================================================= */
+
+.about-carousel-item.orbit-selected {
+
+    border-color: #fff;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.25),
+        0 0 0 4px #F3A904;
+
+}
+
+
+/* Empêche le zoom interne de casser l'effet */
+
+.about-carousel-item.orbit-selected img {
+    transform: scale(1.03);
+}
+
+/* =========================================================
+   CARROUSEL — COMPATIBILITÉ AVEC LE NOUVEAU SCRIPT JS
+   ========================================================= */
+
+/*
+   Image temporaire créée par le JavaScript pendant le trajet
+   d'une vignette vers le cercle central.
+*/
+.about-carousel-moving-image {
+    position: fixed;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid #fff;
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, .25),
+        0 0 0 1px rgba(243, 169, 4, .18);
+    opacity: 1;
+    transform: none !important;
+    transition:
+        left .65s cubic-bezier(.22, .8, .2, 1),
+        top .65s cubic-bezier(.22, .8, .2, 1),
+        width .65s cubic-bezier(.22, .8, .2, 1),
+        height .65s cubic-bezier(.22, .8, .2, 1);
+    pointer-events: none;
+}
+
+/* Le bouton d'origine reste à sa place dans l'orbite. */
+.about-carousel-item.orbit-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.about-carousel-item.orbit-selected {
+    border-color: #fff;
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, .25),
+        0 0 0 3px var(--orange);
+}
+
+.about-carousel-item.orbit-selected img {
+    transform: scale(1.03);
+}
+
+/* Accessibilité : clavier */
+.about-carousel-item:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 4px;
+}
+
+/* Respecte les utilisateurs qui demandent moins d'animations. */
+@media (prefers-reduced-motion: reduce) {
+    .about-carousel-item {
+        animation-duration: 60s;
+    }
+
+    .about-carousel-moving-image {
+        transition-duration: .01ms;
+    }
+}
+
